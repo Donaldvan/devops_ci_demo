@@ -1,4 +1,3 @@
 numpy
-Flask
 django
 name_tools
