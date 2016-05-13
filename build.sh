@@ -11,5 +11,5 @@ pip install -r requirements.txt
 
 cd faceit
 
-python manage.py manage.py --noinput
+python manage.py migrate --noinput
 python manage.py collectstatic --noinput
