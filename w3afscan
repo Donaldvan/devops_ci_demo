@@ -1,0 +1,22 @@
+plugins
+output console, html_file
+output config html_file
+set output_file ./output-w3af.html
+set verbose True
+back
+output config console
+back
+
+
+audit all
+back
+
+target
+set target http://localhost:5000
+back
+
+start
+
+
+
+exit
