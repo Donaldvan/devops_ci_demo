@@ -13,4 +13,3 @@ cd faceit
 
 python manage.py manage.py --noinput
 python manage.py collectstatic --noinput
-python manage.py test
