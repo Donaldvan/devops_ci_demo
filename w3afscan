@@ -12,7 +12,7 @@ audit all
 back
 
 target
-set target http://localhost:5000
+set target http://localhost:80
 back
 
 start
