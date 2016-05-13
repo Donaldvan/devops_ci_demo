@@ -1,7 +1,7 @@
 plugins
 output console, html_file
 output config html_file
-set output_file ./output-w3af.html
+set output_file /tmp/W3afReport.html
 set verbose True
 back
 output config console
