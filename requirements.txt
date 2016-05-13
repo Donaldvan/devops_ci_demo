@@ -1,4 +1,2 @@
-numpy
 django
 name_tools
-gunicorn
