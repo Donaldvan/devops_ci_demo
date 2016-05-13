@@ -10,6 +10,7 @@ node {
 
 
     stage 'Test'
+    // Test stage
     workspace = pwd()
     sh "chmod 755 ./test.sh && ./test.sh"
 
