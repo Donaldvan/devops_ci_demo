@@ -10,7 +10,6 @@ https://docs.djangoproject.com/en/1.9/howto/deployment/wsgi/
 import os, sys
 import site
 
-print(sys.path)
 from django.core.wsgi import get_wsgi_application
 
 
