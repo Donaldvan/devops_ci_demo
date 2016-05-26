@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import UserForm
+from .models import Users
 
 def index(request):
     return render(request, 'faceitweb/index.html')
@@ -17,3 +18,7 @@ def register(request):
             return HttpResponseRedirect('/')
 
     return render(request, 'faceitweb/index.html')
+
+
+def users(request):
+    return render(request, 'faceitweb/users.html', {'users': User.objects.all() })
