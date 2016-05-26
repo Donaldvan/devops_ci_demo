@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import UserForm
-from .models import Users
+from .models import User
 
 def index(request):
     return render(request, 'faceitweb/index.html')

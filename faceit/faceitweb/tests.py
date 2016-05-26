@@ -17,16 +17,20 @@ class HomeIntegrationTest(TestCase):
         self.assertTrue(User.objects.filter(full_name='John Smith').first().id, 1)
 
     def test_user_listing_index(self):
+        User(full_name="new user", bio="likes things and stuff").save()
+        User(full_name="newer user", bio="likes other things and other stuff").save()
+
         response = self.client.get('/users/')
 
-        User(full_name="John Smith", bio="likes things and stuff").save()
-        User(full_name="Martha Jones", bio="likes other things and other stuff").save()
+        content = response.content.lower()
+        
+        self.assertTrue("new user" in content)
+        self.assertTrue("likes things and stuff" in content)
 
-        self.assertTrue("john smith" in response.content.lower())
-        self.assertTrue("likes things and stuff" in response.content.lower())
+        self.assertTrue("newer" in content)
+        self.assertTrue("likes other things and other stuff" in content)
 
-        self.assertTrue("martha jones" in response.content.lower())
-        self.assertTrue("likes other things and other stuff" in response.content.lower())
+
 
 
 

@@ -21,7 +21,7 @@
 
   <ul>
   {% for user in users %}
-      <li>{{ user.full_name }}</li>
+      <li>{{ user.full_name }} {{ user.bio }}</li>
   {% empty %}
       <li>Sorry, no users in this list.</li>
   {% endfor %}
