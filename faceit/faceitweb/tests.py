@@ -16,6 +16,18 @@ class HomeIntegrationTest(TestCase):
 
         self.assertTrue(User.objects.filter(full_name='John Smith').first().id, 1)
 
+    def test_user_listing_index(self):
+        response = self.client.get('/users/')
+
+        User(full_name="John Smith", bio="likes things and stuff").save()
+        User(full_name="Martha Jones", bio="likes other things and other stuff").save()
+
+        self.assertTrue("john smith" in response.content.lower())
+        self.assertTrue("likes things and stuff" in response.content.lower())
+
+        self.assertTrue("martha jones" in response.content.lower())
+        self.assertTrue("likes other things and other stuff" in response.content.lower())
+
 
 
 class UserUnitTest(TestCase):

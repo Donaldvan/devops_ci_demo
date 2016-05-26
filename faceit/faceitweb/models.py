@@ -10,6 +10,8 @@ class User(models.Model):
     first_name = models.CharField(max_length=70, default='')
     last_name = models.CharField(max_length=70, default='')
 
+    bio = models.CharField(max_length=254, default='')
+
     def __unicode__(self):              # __unicode__ on Python 2
         return self.full_name
 
