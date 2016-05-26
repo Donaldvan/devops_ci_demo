@@ -3,21 +3,18 @@ from .models import User
 
 class HomeIntegrationTest(TestCase):
 
-    def setUp(self):
-        self.user = User(full_name="john smith")
-        self.user.save()
-
-        self.second_user = User(full_name="jane smith")
-        self.second_user.save()
-
-
     def test_index(self):
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
 
-    def test_index_contains_text(self):
+    def test_index_contains_form(self):
         response = self.client.get('/')
-        self.assertTrue('jane smith' in response.content.lower())
+        self.assertTrue('Your name:' in response.content.lower())
+
+    def test_post_of_new_user(self):
+        self.client.post('/register/', {'full_name': 'John Smith'})
+
+        self.assertTrue(User.objects.first().filter(full_name='John Smith').id, 1)
 
 
 

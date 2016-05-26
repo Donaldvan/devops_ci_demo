@@ -18,7 +18,13 @@
 </head>
 
 <body>
-  <p> {{ last_user }} </p>
+<form action="/register" method="post">
+    {% csrf_token %}
+    <label for="full_name">Your name: </label>
+    <input id="full_name" type="text" name="full_name" placeholder="Full Name">
+    <input type="submit" value="OK">
+</form>
+
 </body>
 
 
