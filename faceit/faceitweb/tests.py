@@ -9,12 +9,12 @@ class HomeIntegrationTest(TestCase):
 
     def test_index_contains_form(self):
         response = self.client.get('/')
-        self.assertTrue('Your name:' in response.content.lower())
+        self.assertTrue('your name:' in response.content.lower())
 
     def test_post_of_new_user(self):
         self.client.post('/register/', {'full_name': 'John Smith'})
 
-        self.assertTrue(User.objects.first().filter(full_name='John Smith').id, 1)
+        self.assertTrue(User.objects.filter(full_name='John Smith').first().id, 1)
 
 
 
