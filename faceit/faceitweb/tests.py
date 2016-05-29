@@ -30,19 +30,19 @@ class UserUnitTest(TestCase):
     def test_slug_name(self):
         self.assertEqual(self.user.slug(), "john-smith")
 
-# class UserIntegrationTest(TestCase):
-#     '''Tests the user routes'''
-#
-#     def test_user_listing_index(self):
-#         User(full_name="new user", bio="likes things and stuff").save()
-#         User(full_name="newer user", bio="likes other things and other stuff").save()
-#
-#         response = self.client.get('/users/')
-#
-#         content = response.content.lower()
-#
-#         expected_strings = ["new user","likes things and stuff","newer",
-#                             "likes other things and other stuff" ]
-#
-#         for string in expected_strings:
-#             self.assertTrue(string in content)
+class UserIntegrationTest(TestCase):
+    '''Tests the user routes'''
+
+    def test_user_listing_index(self):
+        User(full_name="new user", bio="likes things and stuff").save()
+        User(full_name="newer user", bio="likes other things and other stuff").save()
+
+        response = self.client.get('/users/')
+
+        content = response.content.lower()
+
+        expected_strings = ["new user","likes things and stuff","newer",
+                            "likes other things and other stuff" ]
+
+        for string in expected_strings:
+            self.assertTrue(string in content)

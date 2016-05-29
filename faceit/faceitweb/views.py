@@ -20,5 +20,5 @@ def register(request):
     return render(request, 'faceitweb/index.html')
 
 
-# def users(request):
-#     return render(request, 'faceitweb/users.html', {'users': User.objects.all() })
+def users(request):
+    return render(request, 'faceitweb/users.html', {'users': User.objects.all() })
