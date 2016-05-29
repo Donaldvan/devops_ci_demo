@@ -16,24 +16,6 @@ class HomeIntegrationTest(TestCase):
 
         self.assertTrue(User.objects.filter(full_name='John Smith').first().id, 1)
 
-    def test_user_listing_index(self):
-        User(full_name="new user", bio="likes things and stuff").save()
-        User(full_name="newer user", bio="likes other things and other stuff").save()
-
-        response = self.client.get('/users/')
-
-        content = response.content.lower()
-        
-        self.assertTrue("new user" in content)
-        self.assertTrue("likes things and stuff" in content)
-
-        self.assertTrue("newer" in content)
-        self.assertTrue("likes other things and other stuff" in content)
-
-
-
-
-
 class UserUnitTest(TestCase):
 
     def setUp(self):
@@ -47,3 +29,20 @@ class UserUnitTest(TestCase):
 
     def test_slug_name(self):
         self.assertEqual(self.user.slug(), "john-smith")
+
+# class UserIntegrationTest(TestCase):
+#     '''Tests the user routes'''
+#
+#     def test_user_listing_index(self):
+#         User(full_name="new user", bio="likes things and stuff").save()
+#         User(full_name="newer user", bio="likes other things and other stuff").save()
+#
+#         response = self.client.get('/users/')
+#
+#         content = response.content.lower()
+#
+#         expected_strings = ["new user","likes things and stuff","newer",
+#                             "likes other things and other stuff" ]
+#
+#         for string in expected_strings:
+#             self.assertTrue(string in content)
